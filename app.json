@@ -1,0 +1,15 @@
+{
+  "pages": ["pages/index/index"],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "八位像素画",
+    "navigationBarTextStyle": "black"
+  },
+  "resolveAlias": {
+    "@utils/*": "utils/*",
+    "@tdesign/*": "miniprogram_npm/tdesign-miniprogram/*"
+  },
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

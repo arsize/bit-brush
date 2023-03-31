@@ -1,0 +1,71 @@
+<view class="container">
+    <movable-area scale-area="{{true}}" style="width:100%;height:100%;">
+        <movable-view x="{{x}}" y="{{y}}" disabled="{{active_btn=='move'?false:true}}" scale scale-value="{{scale}}" scale-min="{{0.8}}" animation="{{false}}" direction="all" out-of-bounds class="gird-box" style="width:{{pxLine}}px;">
+            <view class="line-w" wx:for="{{dyadic_arr}}" wx:for-index="irx" wx:for-item="row" wx:key="idx">
+                <view class="single-squ" bind:tap="changeSingleColor" style="border:{{can_eyes?'none':''}};height:{{single_h}}px;background-color:{{col}}" wx:for-item="col" wx:for="{{dyadic_arr[irx]}}" wx:for-index="icx" wx:key="icx" data-set="{{[irx,icx]}}"></view>
+            </view>
+        </movable-view>
+    </movable-area>
+    <view class="tools-box">
+        <view class="top-slider">
+            <view class="slider-box">
+                <t-slider value="{{slider}}" bind:change="handleScaleChange" default-value="{{0}}" />
+            </view>
+            <t-icon class="ticon" style="margin-right:5rpx;{{animation?'animation: Ticon 1s;':''}}" name="refresh" size="48rpx" data-name="refresh" bind:click="onFresh" />
+            <t-icon color="{{active_btn=='move'?'#409EFF':'#555'}}" name="precise-monitor" size="48rpx" data-name="precise-monitor" bind:click="onMoveTap" />
+        </view>
+        <view class="select-gird-num">
+            <view class="draw-tools">
+                <view class="icon-box">
+                    <t-icon color="{{active_btn=='edit'?'#409EFF':'#555'}}" name="edit" size="48rpx" data-name="edit" bind:click="onEditTap" />
+                </view>
+                <view class="icon-box">
+                    <t-icon color="{{active_btn=='clear'?'#409EFF':'#555'}}" name="clear" size="48rpx" data-name="clear" bind:click="onClearTap" />
+                </view>
+                <view class="icon-box">
+                    <t-icon color="{{active_btn=='save'?'#409EFF':'#555'}}" name="save" size="48rpx" data-name="save" bind:click="onSaveTap" />
+                </view>
+                <view class="icon-box">
+                    <t-icon wx:if="{{can_eyes}}" color="#409EFF" name="browse" size="48rpx" data-name="browse" bind:click="onBrowseTap" />
+                    <t-icon wx:else color="#555" name="browse-off" size="48rpx" data-name="browse-off" bind:click="onBrowseTap" />
+                </view>
+                <view class="icon-box">
+                    <t-icon color="'#555'" name="rollback" size="48rpx" data-name="rollback" bind:click="onRollbackTap" />
+                </view>
+                <view class="icon-box">
+                    <t-icon color="#555" name="rollfront" size="48rpx" data-name="rollfront" bind:click="onRollfrontTap" />
+                </view>
+            </view>
+            <view class="color-box">
+                <view class="icon-box">
+                    <t-icon color="{{can_move?'#409EFF':'#555'}}" name="rectangle" size="48rpx" data-name="rectangle" bind:click="onColorTap" />
+                </view>
+                <view class="icon-box" bind:tap="selectPenColor" wx:for="{{palette}}" wx:for-item="item" wx:key="index" data-item="{{item}}">
+                    <view class="color-round" style="background-color:{{item}};"></view>
+                </view>
+            </view>
+            <view class="btn-box">
+                <t-button class="tbtn" icon="file-add" theme="primary" size="medium" bind:tap="handleAction">
+                    新建画布
+                </t-button>
+                <t-button class="tbtn" theme="outline" icon="image" size="medium" bind:tap="mywork">
+                    我的作品
+                </t-button>
+            </view>
+        </view>
+    </view>
+    <t-toast id="t-toast" />
+    <t-popup visible="{{visible}}" bind:visible-change="onVisibleChange" placement="bottom">
+        <view class="pop-box">
+            <view class="pop-block" bind:tap="handleSelected" data-set="8">8 x 8</view>
+            <view class="pop-block" bind:tap="handleSelected" data-set="16">16 x 16</view>
+            <view class="pop-block" bind:tap="handleSelected" data-set="24">24 x 24</view>
+            <view class="pop-block" bind:tap="handleSelected" data-set="32">32 x 32</view>
+        </view>
+    </t-popup>
+    <t-popup visible="{{visible_save}}" bind:visible-change="onVisibleChange2" placement="bottom">
+        <view class="pop-box">
+            <view class="pop-block" bind:tap="handleSelected2" data-set="save">预览并保存到相册</view>
+        </view>
+    </t-popup>
+</view>

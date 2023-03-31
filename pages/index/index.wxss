@@ -1,0 +1,141 @@
+page {
+  /* background-color: #f3f3f3; */
+}
+
+.container {
+  width: 100%;
+  height: 70vh;
+  padding: 0;
+  padding-top: 10rpx;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.line-w {
+  display: flex;
+}
+
+.single-squ {
+  flex: 1;
+  border: 1px solid #5a5a5a;
+  box-sizing: border-box;
+  font-size: 10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}
+.line-w:not(:first-child) .single-squ {
+  border-top: none;
+}
+.single-squ:not(:last-child) {
+  border-right: none;
+}
+.tools-box {
+  background-color: #fff;
+  margin-top: 20rpx;
+  width: 100%;
+  box-sizing: border-box;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 40rpx 30rpx;
+  box-shadow: 0rpx -2rpx 5rpx #dedede;
+}
+.ticon {
+  color: #555;
+}
+
+@keyframes Ticon {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(180deg);
+  }
+}
+
+.select-gird-num {
+  font-size: 13px;
+}
+.top-slider {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.top-slider .slider-box {
+  width: 80%;
+  padding: 20rpx 0;
+  padding-top: 0;
+}
+.gird-box {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 5vw;
+}
+.btn-box {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5rpx;
+}
+.draw-tools {
+  margin: 20rpx 0;
+  padding: 20rpx 0;
+  margin-top: 0;
+  padding-bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.icon-box {
+  width: 60rpx;
+  height: 60rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.color-box {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx 0;
+  padding-top: 0;
+}
+.color-round {
+  width: 60%;
+  height: 60%;
+  border-radius: 50%;
+  border: 1rpx solid #000;
+}
+.color-round:hover {
+  animation: TColor 1s;
+}
+
+@keyframes TColor {
+  from {
+    width: 60%;
+    height: 60%;
+  }
+  to {
+    width: 65%;
+    height: 65%;
+  }
+}
+.pop-box {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+.pop-block {
+  width: 100%;
+  display: flex;
+  padding: 10px 0;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "t-popup": "tdesign-miniprogram/popup/popup",
+    "t-button": "tdesign-miniprogram/button/button",
+    "t-slider": "tdesign-miniprogram/slider/slider",
+    "t-icon": "tdesign-miniprogram/icon/icon",
+    "t-toast": "tdesign-miniprogram/toast/toast"
+  }
+}
